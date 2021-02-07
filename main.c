@@ -6,27 +6,20 @@
 #include "traversals.h"
 #include "tree.h"
 
-/*struct Node *new_node(char *d) {
-	struct Node *root;
-	root = malloc(sizeof(struct Node));
-	root -> data = d;
-	root -> left = NULL;
-	root -> right = NULL;
-
-	return root;
-}*/
-
 int main(int argc, char *argv[]) {
-	//int a = 'h';
-	//int b = 'a';
+	if (argc == 1) {
+		printf("Number of arguments is %d\n", argc-1);
+		printf("Please call this process w/ at least 1 string file\n");
+		return EXIT_SUCCESS;
+	}
 	char x[30] = "hello";
 	printf("I'm working\n");
 	struct Node *root;
 	root = new_node("hh");
 	printf("%s\n", root -> data);
 	preorder(root);
-	printf("Fuck you\n");
 	insert_node(root, x);
+	postorder(root);
 	//printf("%d\n", a + b);
 	free(root);
 	return 0;
