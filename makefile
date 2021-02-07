@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -std=gnu99
 
 EXE = main
 OBJ = main.o tree.o traversals.o
@@ -17,4 +17,4 @@ $(EXE): $(OBJ)
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	 /bin/rm -rf *.o
+	 /bin/rm -rf *.o *.txt

@@ -6,6 +6,8 @@
 #include "traversals.h"
 #include "tree.h"
 
+#define BUFFER 80
+
 /* Prototypes */
 static void print_inorder(struct Node* root);
 static void print_preorder(struct Node* root);
@@ -19,6 +21,31 @@ int main(int argc, char *argv[]) {
 		printf("Please call this process w/ at least 1 string file\n");
 		return EXIT_SUCCESS;
 	}
+
+	/* https://stackoverflow.com/questions/46512315/
+ 	 * c-reading-file-and-splitting-with-strtok-into-an-array/46513747  */
+	FILE *finput;
+	char *str = malloc(BUFFER * sizeof(char));	
+	int counter = 0;
+	char *tokenArray[100];
+	int i = 0;
+	//int j = 0;	
+	//char *token;
+
+	finput = fopen(argv[1], "r");
+	while (fgets(str, BUFFER, finput) != NULL) {
+		tokenArray[0] = strtok(str, " ");
+		for (i = 1; i < sizeof(tokenArray) / sizeof(tokenArray[0]); i++) {
+			if ((tokenArray[i] = strtok(NULL, " ")) == NULL)
+				break;
+		}
+		counter = i;
+	
+		for (i = 0; i < counter; i++) {
+			printf("%s\n", tokenArray[i]);
+		}
+	}	
+
 	//char x[30];
 	printf("I'm working\n");
 	struct Node *root;
@@ -34,6 +61,7 @@ int main(int argc, char *argv[]) {
 	print_inorder(root);
 
 	free(root);
+	fclose(finput);
 	return EXIT_SUCCESS;
 }
 
