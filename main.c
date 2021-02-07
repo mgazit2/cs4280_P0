@@ -9,6 +9,7 @@
 #define BUFFER 80
 
 /* Prototypes */
+static void build_tree(struct Node* root);
 static void print_inorder(struct Node* root);
 static void print_preorder(struct Node* root);
 static void print_postorder(struct Node* root);
@@ -23,14 +24,16 @@ int main(int argc, char *argv[]) {
 	}
 
 	/* https://stackoverflow.com/questions/46512315/
- 	 * c-reading-file-and-splitting-with-strtok-into-an-array/46513747  */
+ 	 * c-reading-file-and-splitting-with-strtok-into-an-array/46513747
+	 * though familiar with the existence of strtok, I did not know how to
+ 	 * implement it into my program. The below code segment is taken from the
+ 	 * above stackoverflow link and bits of the man page */ 	
 	FILE *finput;
 	char *str = malloc(BUFFER * sizeof(char));	
 	int counter = 0;
 	char *tokenArray[100];
 	int i = 0;
-	//int j = 0;	
-	//char *token;
+	int n; // final size of the array after file is read
 
 	finput = fopen(argv[1], "r");
 	while (fgets(str, BUFFER, finput) != NULL) {
@@ -45,16 +48,25 @@ int main(int argc, char *argv[]) {
 			printf("%s\n", tokenArray[i]);
 		}
 	}	
-
+	/* End stackoverflow segment */
+	
+	n = sizeof(tokenArray) / sizeof(*tokenArray);
+	printf("%d\n", n);
 	//char x[30];
 	printf("I'm working\n");
 	struct Node *root;
-	root = new_node("hh");
+	root = new_node(tokenArray[0]);
 	printf("%s\n", root -> data);
 	//preorder(root);
+	i = 1;
+	for (i; i < n; i++) {
+		if (tokenArray[i] == NULL)
+			break;
+		insert_node(root, tokenArray[i]);	
+	}
 
-	insert_node(root, argv[1]);
-	insert_node(root, argv[1]);
+	//insert_node(root, tokenArray[1]);
+	//insert_node(root, tokenArray[2]);
 
 	print_preorder(root);
 	print_postorder(root);
@@ -75,4 +87,8 @@ static void print_preorder(struct Node* root){
 
 static void print_postorder(struct Node* root){
 	postorder(root);
+}
+
+static void build_tree(struct Node* root) {
+
 }
