@@ -9,7 +9,7 @@
 #define BUFFER 80
 
 /* Prototypes */
-static void build_tree(struct Node* root);
+static void build_tree(struct Node* root, char** array);
 static void print_inorder(struct Node* root);
 static void print_preorder(struct Node* root);
 static void print_postorder(struct Node* root);
@@ -56,18 +56,21 @@ int main(int argc, char *argv[]) {
 	printf("I'm working\n");
 	struct Node *root;
 	root = new_node(tokenArray[0]);
+	
 	printf("%s\n", root -> data);
 	//preorder(root);
-	i = 1;
-	for (i; i < n; i++) {
+	/*i = 1;
+	for (; i < n; i++) {
 		if (tokenArray[i] == NULL)
 			break;
 		insert_node(root, tokenArray[i]);	
-	}
+	}*/
 
 	//insert_node(root, tokenArray[1]);
 	//insert_node(root, tokenArray[2]);
 
+
+	build_tree(root, tokenArray);
 	print_preorder(root);
 	print_postorder(root);
 	print_inorder(root);
@@ -89,6 +92,15 @@ static void print_postorder(struct Node* root){
 	postorder(root);
 }
 
-static void build_tree(struct Node* root) {
-
+static void build_tree(struct Node* root, char** array) {
+	char* a;
+	int i = 1;
+	int n = sizeof(array) / sizeof(array[0]);
+	printf("Here!");
+        for (; i < n; i++, array++) {
+                a = array[i];
+		if (a == NULL)
+                        break;
+                insert_node(root, a);
+        }
 }
