@@ -1,3 +1,6 @@
+#MAKEFILE
+#MATAN GAZIT
+
 CC = gcc
 CFLAGS = -Wall -g -std=gnu99
 
@@ -17,4 +20,4 @@ $(EXE): $(OBJ)
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	 /bin/rm -rf *.o *.txt
+	 /bin/rm -rf *.o output.*

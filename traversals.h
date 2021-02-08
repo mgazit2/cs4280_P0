@@ -1,4 +1,5 @@
-/* traversals.h  */
+/* traversals.h
+ * Matan Gazit  */
 #ifndef TRAVERSALS_H
 #define TRAVERSALS_H
 

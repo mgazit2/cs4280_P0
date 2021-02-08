@@ -1,4 +1,5 @@
-/* tree.h */
+/* tree.h
+ * Matan Gazit */
 #ifndef TREE_H
 #define TREE_H
 

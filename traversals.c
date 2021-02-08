@@ -1,11 +1,12 @@
-/* traversals.c */
+/* traversals.c
+ * Matan Gazit */
 #include "node.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 void inorder(struct Node *root) {
 	FILE *printFile;
-        printFile = fopen("inorder.txt", "a");
+        printFile = fopen("output.inorder", "a");
         if (printFile == NULL) {
                 printf("File could not be opened...\n");
                 exit(1);
@@ -21,7 +22,7 @@ void inorder(struct Node *root) {
 
 void preorder(struct Node *root) {
         FILE *printFile;
-	printFile = fopen("preorder.txt", "a");
+	printFile = fopen("output.preorder", "a");
 	if (printFile == NULL) {
 		printf("File could not be oppened...\n");
 		exit(1);
@@ -37,7 +38,7 @@ void preorder(struct Node *root) {
 
 void postorder(struct Node *root) {
 	FILE *printFile;
-        printFile = fopen("postorder.txt", "a");
+        printFile = fopen("output.postorder", "a");
         if (printFile == NULL) {
                 printf("File could not be oppened...\n");
                 exit(1);
