@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -g -std=gnu99
 
-EXE = main
+EXE = P0
 OBJ = main.o tree.o traversals.o
 OUT = $(EXE)
 

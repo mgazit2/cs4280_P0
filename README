@@ -1,0 +1,21 @@
+Matan Gazit
+Project 0
+CS4280
+
+Due: 02/08/2021
+
+MAKE:
+
+	To make this project, use command 'make' in the command line when in the project directory
+
+RUN:
+
+	To run this project, use command './P0 [OPTIONAL_FILE]' in the command line when in the project directory
+
+	If no [OPTIONAL_FILE] is entered as an argument, the user will be tasked with entering 10 words into a character array
+
+	If an [OPTIONAL_FILE] is used, the program will use text from inside the file to construct a tree of up to size 100
+	
+	Array will be used to construct a tree, and then print its traversals into 3 seperate files: output.inorder,
+			output.preorder, output.postorder. Look for these files in the directory following succesfull execution
+

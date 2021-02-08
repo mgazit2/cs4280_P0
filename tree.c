@@ -27,14 +27,20 @@ struct Node* insert_node(struct Node* root, char* x) {
 	//If the string is a single char
 	else if (strlen(x) < 2)
 		sum_of_x = x[0];
-	// Same as above, but for the root data
+
+	//Same as above, but for the root data
 	if (strlen(root -> data) >= 2)
 		sum_of_root = root -> data[0] + root -> data[1];
 	else if (strlen(root -> data) < 2)
 		sum_of_root = root -> data[0];
+	
+	//Decide direction
 	if (sum_of_x > sum_of_root)
 		root -> right = insert_node(root -> right, x);
-	else
+	else if (sum_of_x < sum_of_root)
 		root -> left = insert_node(root -> left, x);
+	else if (sum_of_x == sum_of_root) {
+		strcat(root -> data, x);
+	}
 	return root; 
 }
